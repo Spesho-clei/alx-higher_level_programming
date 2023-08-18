@@ -1,13 +1,2 @@
 #!/bin/bash
-
-if [ -z "$PYCODE" ]; then
-    echo "Error: Environment variable \$PYCODE is not set."
-    exit 1
-fi
-
-temp_file=$(mktemp)
-echo "$PYCODE" > "$temp_file"
-
-python "$temp_file"
-
-rm "$temp_file"
+python3 <<< $PYCODE
