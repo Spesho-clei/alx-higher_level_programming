@@ -1,0 +1,65 @@
+'-say_my_name' module
+=====================
+
+Unit tests for 'say_my_name' function
+-------------------------------------
+
+Import the function:
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Tests:
+
+    >>> say_my_name("John", "Doe")
+    My name is John Doe
+
+    >>> say_my_name("Jane")
+    My name is Jane
+
+    >>> say_my_name(123, "Doe")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name("John", 123)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name(123)
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+Documentation:
+--------------
+
+This module defines a function `say_my_name(first_name, last_name="")` that prints a formatted name string.
+
+Usage:
+------
+
+The function `say_my_name(...)` takes a `first_name` argument and an optional `last_name` argument and prints a formatted name string.
+
+Examples:
+
+    >>> say_my_name("John", "Doe")
+    My name is John Doe
+
+    >>> say_my_name("Jane")
+    My name is Jane
+
+    >>> say_my_name(123, "Doe")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name("John", 123)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name(123)
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
