@@ -1,8 +1,10 @@
--- Select JOIN with WHERE clause
+-- Select LEFT JOIN with WHERE clause
 -- Execute: cat 14-my_genres.sql | mysql -hlocalhost -uroot -p hbtn_0d_tvshows
-SELECT tv_genres.name
-FROM tv_shows
-JOIN tv_show_genres ON tv_shows.id = tv_show_genres.tv_show_id
-JOIN tv_genres ON tv_show_genres.genre_id = tv_genres.id
-WHERE tv_shows.title = 'Dexter'
-ORDER BY tv_genres.name ASC;
+SELECT a.name
+FROM tv_genres a
+LEFT JOIN tv_show_genres b
+ON a.id = b.genre_id
+LEFT JOIN tv_shows c
+ON b.show_id = c.id
+WHERE c.title = 'Dexter'
+ORDER BY 1 ASC;

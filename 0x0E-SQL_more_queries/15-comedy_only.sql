@@ -1,8 +1,10 @@
--- Select JOIN with WHERE clause
+-- Select 2 LEFT JOIN with WHERE clause
 -- Execute: cat 15-comedy_only.sql | mysql -hlocalhost -uroot -p hbtn_0d_tvshows
-SELECT tv_shows.title
-FROM tv_shows
-JOIN tv_show_genres ON tv_shows.id = tv_show_genres.tv_show_id
-JOIN tv_genres ON tv_show_genres.genre_id = tv_genres.id
-WHERE tv_genres.name = 'Comedy'
-ORDER BY tv_shows.title ASC;
+SELECT A.title
+FROM tv_shows A
+LEFT JOIN tv_show_genres B
+ON A.id = B.show_id
+LEFT JOIN tv_genres C
+ON B.genre_id = C.id
+WHERE C.name = 'Comedy'
+ORDER BY 1 ASC;

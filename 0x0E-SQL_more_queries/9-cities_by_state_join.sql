@@ -1,6 +1,7 @@
 -- Use INNER JOIN
 -- Execute: cat 9-cities_by_state_join.sql | mysql -hlocalhost -uroot -p hbtn_0d_usa
-SELECT cities.id, cities.name, states.name AS state_name
-FROM cities, states
-WHERE cities.state_id = states.id
-ORDER BY cities.id ASC;
+SELECT a.id AS id, a.name AS name, b.name AS name 
+FROM cities a 
+INNER JOIN states b 
+ON a.state_id = b.id
+ORDER BY a.id ASC;
