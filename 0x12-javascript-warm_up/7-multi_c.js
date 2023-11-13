@@ -10,8 +10,8 @@ const numOccurrences = parseInt(arg);
 if (!isNaN(numOccurrences)) {
   // Loop to print "C is fun" x times
   for (let i = 0; i < numOccurrences; i++) {
-    console.log("C is fun");
+    console.log('C is fun');
   }
 } else {
-  console.log("Missing number of occurrences");
+  console.log('Missing number of occurrences');
 }
