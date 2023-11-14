@@ -1,8 +1,9 @@
 #!/usr/bin/node
 
-let count = 0;
-
-exports.logMe = function(item) {
-  console.log(this.count + ": " + item);
+exports.logMe = function (item) {
+  if (typeof this.count === 'undefined') {
+    this.count = 0;
+  }
+  console.log(this.count + ': ' + item);
   this.count++;
 };
