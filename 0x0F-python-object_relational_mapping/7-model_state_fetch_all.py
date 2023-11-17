@@ -6,17 +6,15 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 import sys
+from sqlalchemy.ext.declarative import declarative_base
 
-
-    if len(sys.argv) != 4:
-        print("Usage: {} <username> <password> <database_name>".format(sys.argv[0]))
-        sys.exit(1)
-
-    username, password, database = sys.argv[1], sys.argv[2], sys.argv[3]
+    i = sys.argv
+    if len(i) < 4:
+        exit(1)
 
     # Database connection
     conn_str = 'mysql+mysqldb://{}:{}@localhost:3306/{}'
-    engine = create_engine(conn_str.format(sys.argv[1], sys.argv[2], sys.argv[3]))
+    engine = create_engine(conn_str.format(i[1], i[2], i[3]))
     Base.metadata.create_all(engine)
 
     # Create a session
