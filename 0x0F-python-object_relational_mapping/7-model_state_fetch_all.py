@@ -14,7 +14,7 @@ if __name__ == "__main__":
 
     # Database connection
     conn_str = 'mysql+mysqldb://{}:{}@localhost:3306/{}'
-    engine = create_engine(conn_str.format(username, password, database), pool_pre_ping=True)
+    engine = create_engine(conn_str.format(sys.argv[1], sys.argv[2], sys.argv[3]))
     Base.metadata.create_all(engine)
 
     # Create a session
