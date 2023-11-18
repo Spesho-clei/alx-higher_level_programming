@@ -1,17 +1,15 @@
 #!/usr/bin/python3
+""" prints the first State object from the database
 """
-script that lists all State objects
-from the database `hbtn_0e_6_usa`.
-"""
-
 from sys import argv
 from model_state import Base, State
-from sqlalchemy import create_engine
+from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
+
 
 if __name__ == "__main__":
     """
-    Access to the database and get the states
+    Access to the database and get a state
     from the database.
     """
 
@@ -21,6 +19,9 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
 
     session = Session()
+    instance = session.query(State).order_by(State.id).first()
 
-    for instance in session.query(State).order_by(State.id):
+    if instance is None:
+        print('Nothing')
+    else:
         print('{0}: {1}'.format(instance.id, instance.name))

@@ -1,17 +1,16 @@
 #!/usr/bin/python3
-"""
-script that lists all State objects
-from the database `hbtn_0e_6_usa`.
-"""
 
+""" Write a script that lists all State objects that contain the letter a
+"""
 from sys import argv
 from model_state import Base, State
-from sqlalchemy import create_engine
+from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
+
 
 if __name__ == "__main__":
     """
-    Access to the database and get the states
+    Access to the database and get a state
     from the database.
     """
 
@@ -22,5 +21,5 @@ if __name__ == "__main__":
 
     session = Session()
 
-    for instance in session.query(State).order_by(State.id):
+    for instance in session.query(State).filter(State.name.contains('a')):
         print('{0}: {1}'.format(instance.id, instance.name))

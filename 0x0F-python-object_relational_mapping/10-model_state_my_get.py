@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-script that lists all State objects
+script that prints the State object id
+with the name passed as argument
 from the database `hbtn_0e_6_usa`.
 """
 
@@ -11,7 +12,7 @@ from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
     """
-    Access to the database and get the states
+    Access to the database and get a state
     from the database.
     """
 
@@ -21,6 +22,9 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
 
     session = Session()
+    instance = session.query(State).filter(State.name == argv[4]).first()
 
-    for instance in session.query(State).order_by(State.id):
-        print('{0}: {1}'.format(instance.id, instance.name))
+    if instance is None:
+        print('Not found')
+    else:
+        print('{0}'.format(instance.id))
